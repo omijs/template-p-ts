@@ -1,0 +1,8 @@
+<block>
+    <view>
+        <view>Hello, {{msg}}!</view>
+        <button bindtap="clickHandler" __fn_onClick="{{true}}">点击我</button>
+        <view>{{arr[0]}}</view>
+        <view>{{arr[1]}}</view>
+    </view>
+</block>
