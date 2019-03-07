@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "my-counter": "../../components/my-counter/index"
-  },
-  "navigationBarTitleText": "查看启动日志"
-}

@@ -1,7 +1,0 @@
-<block>
-    <view>
-        <button bindtap="sub" __fn_onClick="{{true}}">-</button><text>{{count}}</text>
-        <button bindtap="add" __fn_onClick="{{true}}">+</button>
-        <my-element msg="omi"></my-element>
-    </view>
-</block>

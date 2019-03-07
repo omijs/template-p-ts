@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "my-element": "../my-element/index"
-  }
-}
