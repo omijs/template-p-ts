@@ -1,6 +1,7 @@
 
 import { WeElement, define } from 'omi'
 import './index.css'
+import shareImg from './share.jpg'
 
 //获取应用实例
 const app = getApp()
@@ -34,6 +35,20 @@ define('page-index', class extends WeElement {
     })
   }
 
+	onShareAppMessage(){
+		return {
+      title: '分享标题',
+      path: '/pages/index/index?id=123',
+      imageUrl: shareImg,
+      success: (res) => {
+        console.log("转发成功", res);
+      },
+      fail: (res) => {
+        console.log("转发失败", res);
+      }
+    }
+	}
+	
   install() {
     if (app.globalData.userInfo) {
       this.data.userInfo = app.globalData.userInfo
