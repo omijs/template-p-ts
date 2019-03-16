@@ -162,6 +162,18 @@ root.create = {
       config.onPageScroll = ins.onPageScroll.bind(ins)
     }
 
+		if (ins.onShareAppMessage) {
+      config.onShareAppMessage = ins.onShareAppMessage.bind(ins)
+    }
+
+     if (ins.onResize) {
+      config.onResize = ins.onResize.bind(ins)
+    }
+
+     if (ins.onTabItemTap) {
+      config.onTabItemTap = ins.onTabItemTap.bind(ins)
+    }
+
     ins._createData()
     
     Page(config)
