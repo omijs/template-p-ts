@@ -18,7 +18,7 @@ export function define(name, ctor) {
   })
 
   config.created = function () {
-    ins._weappRef = this
+    ins.$scope = this
     config.$$refs.forEach(ref => {
       if (ref.type === 'component') {
         if (ref.fn) {
