@@ -7,16 +7,23 @@ class Component {
   constructor() { }
 
   data = {}
-  
+
   update(patch, callback) {
+    
+    this.beforeUpdate && this.beforeUpdate()
+    this.beforeRender && this.beforeRender()
+
     try {
       this._createData()
     } catch (e) {
       console.log(e)
     }
-    
-    this.beforeUpdate && this.beforeUpdate()
-    this.beforeRender && this.beforeRender()
+
+    for (let key in this.data) {
+      if (this.data[key] === undefined) {
+        delete this.data[key]
+      }
+    }
 
     if (arguments.length === 0) {
       this.$scope.setData(this.data)
@@ -98,7 +105,7 @@ const defineApp = function (name, ctor) {
   config.onHide = function () {
     ins.onHide && ins.onHide()
   }
-  
+
   App(config)
 }
 
@@ -139,7 +146,7 @@ root.create = {
         }
       })
       ins.install(options)
-      ins.beforeRender && ins.beforeRender()
+      ins.update()
     }
 
     config.onReady = function () {
@@ -170,20 +177,18 @@ root.create = {
       config.onPageScroll = ins.onPageScroll.bind(ins)
     }
 
-		if (ins.onShareAppMessage) {
+    if (ins.onShareAppMessage) {
       config.onShareAppMessage = ins.onShareAppMessage.bind(ins)
     }
 
-     if (ins.onResize) {
+    if (ins.onResize) {
       config.onResize = ins.onResize.bind(ins)
     }
 
-     if (ins.onTabItemTap) {
+    if (ins.onTabItemTap) {
       config.onTabItemTap = ins.onTabItemTap.bind(ins)
     }
 
-    ins._createData()
-    
     Page(config)
   }
 }
